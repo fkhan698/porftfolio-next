@@ -1,0 +1,58 @@
+@import "../../styles/mixins";
+
+.HerroContainer {
+  width: 100%;
+  padding: 9rem;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+
+  .introText {
+    display: flex;
+    flex-direction: column;
+    margin: 10rem;
+    width: 100%;
+    h1 {
+      font-size: 4rem;
+      margin: 0;
+    }
+    p {
+      font-size: 1.5rem;
+      color: rgb(243, 255, 134);
+    }
+    @include respond(tablet) {
+      order: 2;
+      text-align: center;
+      h1 {
+        font-size: 3.8rem;
+      }
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .headshot {
+    display: flex;
+
+    justify-content: center;
+    margin: auto;
+  }
+  .headshotImage {
+    width: 60%;
+    height: 50%;
+    border-radius: 80%;
+    min-width: 300px;
+
+    @include respond(tablet) {
+      width: 70%;
+      height: 70%;
+      margin-top: 7em;
+    }
+  }
+
+  @include respond(tablet) {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+}

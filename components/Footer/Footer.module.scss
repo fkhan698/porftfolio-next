@@ -1,0 +1,16 @@
+@import "../../styles/mixins";
+
+.footer {
+  width: 100%;
+
+  ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    margin-top: 12rem;
+  }
+  ul > * {
+    text-align: center;
+    margin: 0, auto;
+  }
+}
