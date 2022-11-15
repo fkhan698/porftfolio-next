@@ -23,6 +23,7 @@
     @include respond(tablet) {
       order: 2;
       text-align: center;
+      margin: 0rem;
       h1 {
         font-size: 3.8rem;
       }
@@ -44,9 +45,9 @@
     min-width: 300px;
 
     @include respond(tablet) {
-      width: 70%;
+      width: 40%;
       height: 70%;
-      margin-top: 7em;
+      margin-top: 5em;
     }
   }
 
