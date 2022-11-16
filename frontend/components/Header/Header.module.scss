@@ -27,7 +27,7 @@
     cursor: pointer;
   }
 
-  @include respond(tablet) {
+  @include respond(mobile) {
     display: none;
   }
 }

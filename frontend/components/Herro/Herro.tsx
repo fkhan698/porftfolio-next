@@ -1,14 +1,14 @@
-import React from "react";
-import styles from "./Herro.module.scss";
+import React from "react"
+import styles from "./Herro.module.scss"
 
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 const Herro = () => {
   return (
     <>
       <div className={styles.HerroContainer}>
         <motion.div
-          animate={{ y: 20, transitionEnd: { zIndex: -1 } }}
+          animate={{ y: 50, transitionEnd: { zIndex: -1 } }}
           transition={{ ease: "easeOut", duration: 0.8 }}
           className={styles.introText}
         >
@@ -24,7 +24,7 @@ const Herro = () => {
         </motion.div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Herro;
+export default Herro

@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./About.module.scss";
-import { motion, Variants } from "framer-motion";
+import React from "react"
+import styles from "./About.module.scss"
+import { motion, Variants } from "framer-motion"
 
 const textVariants: Variants = {
   onscreen: {
@@ -9,7 +9,7 @@ const textVariants: Variants = {
       duration: 0.8,
     },
   },
-};
+}
 
 const About = () => {
   return (
@@ -32,7 +32,7 @@ const About = () => {
         </p>
       </motion.div>
     </div>
-  );
-};
+  )
+}
 
-export default About;
+export default About

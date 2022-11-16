@@ -1,9 +1,9 @@
-import React from "react";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
-import Herro from "../components/Herro/Herro";
+import React from "react"
+import Header from "../components/Header/Header"
+import Footer from "../components/Footer/Footer"
+import Herro from "../components/Herro/Herro"
 
-import About from "../components/About/About";
+import About from "../components/About/About"
 
 const Layout = ({}) => {
   return (
@@ -14,7 +14,7 @@ const Layout = ({}) => {
 
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
