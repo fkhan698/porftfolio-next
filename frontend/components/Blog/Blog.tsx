@@ -1,13 +1,29 @@
-import React from "react";
-import Header from "../Header/Header";
-import styles from "./Blog.module.scss";
-const Blog = () => {
-  return (
-    <div>
-      <h1 className={styles.container}>Blog Template</h1>
-      <div className={styles.grid}></div>
-    </div>
-  );
-};
+import React from "react"
+import styles from "./Blog.module.scss"
+import { useQuery } from "@apollo/client"
+import gql from "graphql-tag"
+import client from "../../helpers/apollo-client"
 
-export default Blog;
+import BlogPost from "./BlogPost"
+const ALL_POSTS_QUERY = gql`
+  query ALL_POSTS {
+    blogPosts {
+      id
+      name
+    }
+  }
+`
+
+const Blog = ({}) => {
+  const { data } = useQuery(ALL_POSTS_QUERY)
+  console.log(data)
+  return (
+    <>
+      <div className={styles.HerroContainer}>
+        <BlogPost />
+      </div>
+    </>
+  )
+}
+
+export default Blog

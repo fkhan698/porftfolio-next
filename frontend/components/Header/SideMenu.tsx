@@ -1,6 +1,6 @@
-import { useState } from "react";
-import styled from "styled-components";
-import Link from "next/link";
+import { useState } from "react"
+import styled from "styled-components"
+import Link from "next/link"
 
 const MobileExpandButton = styled.button`
   width: 50px;
@@ -49,7 +49,7 @@ const MobileExpandButton = styled.button`
   @media screen and (max-width: 768px) {
     display: block;
   }
-`;
+`
 
 const Sider = styled.div<{ show: boolean }>`
   display: flex;
@@ -78,7 +78,7 @@ const Sider = styled.div<{ show: boolean }>`
     bottom: 0;
     background-color: #fff;
   }
-`;
+`
 
 const Menu = styled.ul`
   list-style: none;
@@ -88,7 +88,7 @@ const Menu = styled.ul`
   align-items: center;
   width: 200px;
   padding: 0;
-`;
+`
 
 const MenuItem = styled.li`
   margin-top: 2rem;
@@ -97,17 +97,17 @@ const MenuItem = styled.li`
   &:last-of-type {
     margin-bottom: 0;
   }
-`;
+`
 
 const SideMenu = () => {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false)
 
   const routes = [
     { name: "Home", route: "/" },
     { name: "Blog", route: "/blog" },
     { name: "Art", route: "/art" },
     { name: "Contact", route: "#contact" },
-  ];
+  ]
   return (
     <>
       <MobileExpandButton
@@ -131,6 +131,6 @@ const SideMenu = () => {
         </Menu>
       </Sider>
     </>
-  );
-};
-export default SideMenu;
+  )
+}
+export default SideMenu

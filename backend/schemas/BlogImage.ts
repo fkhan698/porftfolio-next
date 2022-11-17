@@ -19,7 +19,7 @@ export const BlogImage = list({
     }),
     altText: text({}),
     post: relationship({
-      ref: "BlogPost.photo",
+      ref: "BlogPost.image",
     }),
   },
   ui: {

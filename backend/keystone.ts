@@ -20,6 +20,14 @@ export default withAuth(
   // Using the config function helps typescript guide you to the available options.
   config({
     // the db sets the database provider - we're using sqlite for the fastest startup experience
+    graphql: {
+      playground: true,
+      cors: {
+        origin: ["https://faizanzkhan.com/", "http://localhost:3000"],
+        credentials: true,
+      },
+    },
+
     db: {
       provider: "sqlite",
       url: "file:./keystone.db",

@@ -13,6 +13,7 @@ import { BlogImage } from "./BlogImage"
 export const BlogPost = list({
   fields: {
     title: text(),
+
     publishedAt: timestamp(),
     status: select({
       options: [
