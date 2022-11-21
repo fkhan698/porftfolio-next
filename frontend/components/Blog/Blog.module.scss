@@ -1,26 +1,17 @@
 @import "../../styles/mixins";
+.BlogContainer {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 
-.HerroContainer {
-  width: 100%;
-  padding: 10rem;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-
+  margin: 0 auto;
   animation: fadeInDown 500ms ease-in;
   @include respond(tablet) {
-    margin: 0rem;
-
-    flex-direction: column;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
   }
-
-  // .postGrid {
-  //   display: flex;
-  //   justify-content: space-evenly;
-  //   flex-direction: row;
-  //   margin: 3rem;
-  //   animation: fadeInDown 500ms ease-in;
-  // }
   @keyframes fadeInDown {
     0% {
       opacity: 0;
@@ -33,32 +24,23 @@
   }
 
   .post {
-    max-width: 410px;
-    max-height: 550px;
+    margin-top: 8rem;
     text-align: center;
-    margin: 5rem;
-  }
-
-  .postImage {
-    width: 410px;
-    height: 550px;
-    border-radius: 8px;
-
     -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
   }
 
-  .postImage:hover {
+  .post:hover {
     cursor: pointer;
     -webkit-transform: scale(1.3);
     transform: scale(0.9);
   }
 
-  .postTitle {
-    color: white;
+  img {
+    width: 410px;
+    height: 550px;
   }
-
-  .postTitle:hover {
-    cursor: pointer;
+  h1 {
+    text-align: center;
   }
 }
