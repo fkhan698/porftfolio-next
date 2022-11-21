@@ -2,42 +2,41 @@
 
 .HerroContainer {
   width: 100%;
-  padding: 12rem;
+  padding: 10rem;
   display: flex;
   justify-content: center;
   align-content: center;
-  
 
-  .postGrid {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    margin: 3rem;
-    animation: fadeInDown 500ms ease-in;
-    @include respond(tablet) {
-      margin: 0rem;
-      
-      flex-direction: column;
-    }
+  animation: fadeInDown 500ms ease-in;
+  @include respond(tablet) {
+    margin: 0rem;
+
+    flex-direction: column;
   }
+
+  // .postGrid {
+  //   display: flex;
+  //   justify-content: space-evenly;
+  //   flex-direction: row;
+  //   margin: 3rem;
+  //   animation: fadeInDown 500ms ease-in;
+  // }
   @keyframes fadeInDown {
     0% {
-        opacity: 0;
-        transform: translateY(-60px);
+      opacity: 0;
+      transform: translateY(-60px);
     }
     100% {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
-}
-
+  }
 
   .post {
     max-width: 410px;
     max-height: 550px;
     text-align: center;
-    margin: 8rem;
-    
+    margin: 5rem;
   }
 
   .postImage {

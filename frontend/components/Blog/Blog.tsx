@@ -24,17 +24,14 @@ const Blog = ({}) => {
   return (
     <>
       <div className={styles.HerroContainer}>
-       {/* {data.blogPosts.map((post) => (
-         <div className={styles.postGrid}>
+        {data.blogPosts.map((post) => (
+          <div className={styles.postGrid}>
             <div className={styles.post}>
-
-              <BlogPost key={post.id} post={post}/>
+              <BlogPost key={post.id} post={post} />
             </div>
-
-         </div>
-        ))} */}
-           <BlogPost />
-        </div>
+          </div>
+        ))}
+      </div>
     </>
   )
 }
