@@ -150,5 +150,6 @@ body {
       rgba(57, 57, 57, 0.01) 100%
     ),
     linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
+  background-repeat: no-repeat;
   font-family: "Montserrat", sans-serif;
 }

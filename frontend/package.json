@@ -12,6 +12,7 @@
     "@apollo/client": "^3.7.1",
     "@apollo/link-error": "^2.0.0-beta.3",
     "@apollo/react-ssr": "^4.0.0",
+    "@keystone-6/document-renderer": "^1.1.2",
     "@types/react-icons": "^3.0.0",
     "apollo-upload-client": "^17.0.0",
     "framer-motion": "^7.6.4",
