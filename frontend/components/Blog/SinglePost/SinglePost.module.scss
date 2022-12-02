@@ -1,3 +1,4 @@
+@import "../../../styles/mixins";
 .container {
   display: flex;
   justify-content: center;
@@ -8,7 +9,28 @@
     margin-top: 12rem;
     width: 50%;
   }
+
+  .backButton:hover {
+    cursor: pointer;
+    color: rgb(243, 255, 134);
+    transition: 0.5s;
+  }
   p {
     font-size: 1.5rem;
+    @include respond(mobile) {
+      font-size: 1rem;
+    }
+  }
+
+  pre {
+    background-color: #011627;
+    color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 100%;
+    z-index: -1;
+    @include respond(mobile) {
+      width: 130%;
+    }
   }
 }
