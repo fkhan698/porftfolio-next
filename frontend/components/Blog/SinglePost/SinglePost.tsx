@@ -13,7 +13,7 @@ import moment from "moment";
 
 const renderers: DocumentRendererProps["renderers"] = {
   inline: {
-    bold: ({}) => {
+    bold: ({ children }) => {
       return <strong>{children}</strong>;
     }
   },
