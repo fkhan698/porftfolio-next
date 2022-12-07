@@ -1,6 +1,6 @@
-import React from "react"
-import Link from "next/link"
-import styles from "./Blog.module.scss"
+import React from "react";
+import Link from "next/link";
+import styles from "./Blog.module.scss";
 const BlogPost = ({ post }: any) => {
   return (
     <>
@@ -19,7 +19,7 @@ const BlogPost = ({ post }: any) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default BlogPost
+export default BlogPost;

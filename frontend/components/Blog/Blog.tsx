@@ -19,15 +19,17 @@ const ALL_POSTS_QUERY = gql`
 const Blog = ({}) => {
   const { data, error, loading } = useQuery(ALL_POSTS_QUERY);
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+
   console.log(data);
 
   return (
     <>
       <div className={styles.BlogContainer}>
-        {data.blogPosts.map((post: any) => (
-          <BlogPost key={post.id} post={post} />
-        ))}
+        <div className={styles.items}>
+          <div className={styles.post}>
+            <h1 style={{ textAlign: "center" }}>Blog Posts in development</h1>
+          </div>
+        </div>
       </div>
     </>
   );
