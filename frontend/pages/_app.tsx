@@ -1,12 +1,11 @@
-import "../styles/globals.css"
-import Head from "next/head"
-import type { AppProps } from "next/app"
-import { ApolloProvider, ApolloClient } from "@apollo/client"
-import withData from "../helpers/withData"
-import Client from "../helpers/apollo-client"
+import "../styles/globals.css";
+import Head from "next/head";
+import { ApolloProvider, ApolloClient } from "@apollo/client";
+import withData from "../helpers/withData";
+import Client from "../helpers/apollo-client";
 
 function MyApp({ Component, pageProps, apollo }: any) {
-  console.log(apollo)
+  console.log(apollo);
   return (
     <div>
       <Head>
@@ -19,16 +18,16 @@ function MyApp({ Component, pageProps, apollo }: any) {
         <Component {...pageProps} />
       </ApolloProvider>
     </div>
-  )
+  );
 }
 
-MyApp.getInitialProps = async function ({ Component, ctx }): any {
-  let pageProps = {} as any
+MyApp.getInitialProps = async function({ Component, ctx }: any) {
+  let pageProps = {} as any;
   if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx)
+    pageProps = await Component.getInitialProps(ctx);
   }
-  pageProps.query = ctx.query
-  return { pageProps }
-}
+  pageProps.query = ctx.query;
+  return { pageProps };
+};
 
-export default withData(MyApp)
+export default withData(MyApp);

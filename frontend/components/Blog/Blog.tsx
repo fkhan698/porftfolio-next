@@ -25,7 +25,7 @@ const Blog = ({}) => {
   return (
     <>
       <div className={styles.BlogContainer}>
-        {data.blogPosts.map(post => (
+        {data.blogPosts.map((post: any) => (
           <BlogPost key={post.id} post={post} />
         ))}
       </div>
