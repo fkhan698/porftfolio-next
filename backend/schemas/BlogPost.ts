@@ -13,6 +13,9 @@ import { BlogImage } from "./BlogImage"
 export const BlogPost = list({
   fields: {
     title: text(),
+    // image: relationship({
+    //   ref: "BlogImage.post",
+    // }),
 
     publishedAt: timestamp(),
     status: select({
