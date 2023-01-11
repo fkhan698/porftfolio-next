@@ -13,6 +13,7 @@ import { config } from "@keystone-6/core"
 import { lists } from "./schema"
 import { User } from "./schemas/User"
 import { BlogPost } from "./schemas/BlogPost"
+import { BlogImage } from "./schemas/BlogImage"
 
 // Keystone auth is configured separately - check out the basic auth setup we are importing from our auth file.
 import { withAuth, session } from "./auth"
@@ -44,6 +45,7 @@ export default withAuth(
     lists: {
       User,
       BlogPost,
+      BlogImage,
     },
     session,
   })
