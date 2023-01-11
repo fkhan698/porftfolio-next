@@ -49,7 +49,13 @@ input StringFilter {
   contains: String
   startsWith: String
   endsWith: String
+  mode: QueryMode
   not: NestedStringFilter
+}
+
+enum QueryMode {
+  default
+  insensitive
 }
 
 input NestedStringFilter {
@@ -101,6 +107,7 @@ input UserCreateInput {
 type BlogPost {
   id: ID!
   title: String
+  photo: BlogImage
   publishedAt: DateTime
   status: String
   content: BlogPost_content_Document
@@ -123,6 +130,7 @@ input BlogPostWhereInput {
   NOT: [BlogPostWhereInput!]
   id: IDFilter
   title: StringFilter
+  photo: BlogImageWhereInput
   publishedAt: DateTimeNullableFilter
   status: StringNullableFilter
 }
@@ -149,6 +157,7 @@ input StringNullableFilter {
   contains: String
   startsWith: String
   endsWith: String
+  mode: QueryMode
   not: NestedStringNullableFilter
 }
 
@@ -175,9 +184,16 @@ input BlogPostOrderByInput {
 
 input BlogPostUpdateInput {
   title: String
+  photo: BlogImageRelateToOneForUpdateInput
   publishedAt: DateTime
   status: String
   content: JSON
+}
+
+input BlogImageRelateToOneForUpdateInput {
+  create: BlogImageCreateInput
+  connect: BlogImageWhereUniqueInput
+  disconnect: Boolean
 }
 
 input BlogPostUpdateArgs {
@@ -187,9 +203,122 @@ input BlogPostUpdateArgs {
 
 input BlogPostCreateInput {
   title: String
+  photo: BlogImageRelateToOneForCreateInput
   publishedAt: DateTime
   status: String
   content: JSON
+}
+
+input BlogImageRelateToOneForCreateInput {
+  create: BlogImageCreateInput
+  connect: BlogImageWhereUniqueInput
+}
+
+type BlogImage {
+  id: ID!
+  image: CloudinaryImage_File
+  altText: String
+  post: BlogPost
+}
+
+type CloudinaryImage_File {
+  id: ID
+  filename: String
+  originalFilename: String
+  mimetype: String
+  encoding: String
+  publicUrl: String
+  publicUrlTransformed(transformation: CloudinaryImageFormat): String
+}
+
+"""
+Mirrors the formatting options [Cloudinary provides](https://cloudinary.com/documentation/image_transformation_reference).
+All options are strings as they ultimately end up in a URL.
+"""
+input CloudinaryImageFormat {
+  """
+  Rewrites the filename to be this pretty string. Do not include `/` or `.`
+  """
+  prettyName: String
+  width: String
+  height: String
+  crop: String
+  aspect_ratio: String
+  gravity: String
+  zoom: String
+  x: String
+  y: String
+  format: String
+  fetch_format: String
+  quality: String
+  radius: String
+  angle: String
+  effect: String
+  opacity: String
+  border: String
+  background: String
+  overlay: String
+  underlay: String
+  default_image: String
+  delay: String
+  color: String
+  color_space: String
+  dpr: String
+  page: String
+  density: String
+  flags: String
+  transformation: String
+}
+
+input BlogImageWhereUniqueInput {
+  id: ID
+}
+
+input BlogImageWhereInput {
+  AND: [BlogImageWhereInput!]
+  OR: [BlogImageWhereInput!]
+  NOT: [BlogImageWhereInput!]
+  id: IDFilter
+  altText: StringFilter
+  post: BlogPostWhereInput
+}
+
+input BlogImageOrderByInput {
+  id: OrderDirection
+  altText: OrderDirection
+}
+
+input BlogImageUpdateInput {
+  image: Upload
+  altText: String
+  post: BlogPostRelateToOneForUpdateInput
+}
+
+"""
+The `Upload` scalar type represents a file upload.
+"""
+scalar Upload
+
+input BlogPostRelateToOneForUpdateInput {
+  create: BlogPostCreateInput
+  connect: BlogPostWhereUniqueInput
+  disconnect: Boolean
+}
+
+input BlogImageUpdateArgs {
+  where: BlogImageWhereUniqueInput!
+  data: BlogImageUpdateInput!
+}
+
+input BlogImageCreateInput {
+  image: Upload
+  altText: String
+  post: BlogPostRelateToOneForCreateInput
+}
+
+input BlogPostRelateToOneForCreateInput {
+  create: BlogPostCreateInput
+  connect: BlogPostWhereUniqueInput
 }
 
 """
@@ -216,6 +345,15 @@ type Mutation {
   updateBlogPosts(data: [BlogPostUpdateArgs!]!): [BlogPost]
   deleteBlogPost(where: BlogPostWhereUniqueInput!): BlogPost
   deleteBlogPosts(where: [BlogPostWhereUniqueInput!]!): [BlogPost]
+  createBlogImage(data: BlogImageCreateInput!): BlogImage
+  createBlogImages(data: [BlogImageCreateInput!]!): [BlogImage]
+  updateBlogImage(
+    where: BlogImageWhereUniqueInput!
+    data: BlogImageUpdateInput!
+  ): BlogImage
+  updateBlogImages(data: [BlogImageUpdateArgs!]!): [BlogImage]
+  deleteBlogImage(where: BlogImageWhereUniqueInput!): BlogImage
+  deleteBlogImages(where: [BlogImageWhereUniqueInput!]!): [BlogImage]
   endSession: Boolean!
   authenticateUserWithPassword(
     email: String!
@@ -262,6 +400,14 @@ type Query {
   ): [BlogPost!]
   blogPost(where: BlogPostWhereUniqueInput!): BlogPost
   blogPostsCount(where: BlogPostWhereInput! = {}): Int
+  blogImages(
+    where: BlogImageWhereInput! = {}
+    orderBy: [BlogImageOrderByInput!]! = []
+    take: Int
+    skip: Int! = 0
+  ): [BlogImage!]
+  blogImage(where: BlogImageWhereUniqueInput!): BlogImage
+  blogImagesCount(where: BlogImageWhereInput! = {}): Int
   keystone: KeystoneMeta!
   authenticatedItem: AuthenticatedItem
 }
@@ -339,11 +485,6 @@ enum KeystoneAdminUIFieldMetaItemViewFieldMode {
   edit
   read
   hidden
-}
-
-enum QueryMode {
-  default
-  insensitive
 }
 
 type KeystoneAdminUISort {

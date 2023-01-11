@@ -17,9 +17,9 @@ export const BlogImage = list({
       cloudinary,
       label: "Source",
     }),
-    altText: text({}),
+    altText: text(),
     post: relationship({
-      ref: "BlogPost.image",
+      ref: "BlogPost.photo",
     }),
   },
   ui: {

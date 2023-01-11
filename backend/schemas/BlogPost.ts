@@ -13,6 +13,15 @@ import { BlogImage } from "./BlogImage"
 export const BlogPost = list({
   fields: {
     title: text(),
+    photo: relationship({
+      ref: "BlogImage.post",
+      ui: {
+        displayMode: "cards",
+        cardFields: ["image", "altText"],
+        inlineCreate: { fields: ["image", "altText"] },
+        inlineEdit: { fields: ["image", "altText"] },
+      },
+    }),
 
     publishedAt: timestamp(),
     status: select({

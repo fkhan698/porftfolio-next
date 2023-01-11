@@ -1,8 +1,8 @@
-import React from "react";
-import styles from "./Header.module.scss";
-import Link from "next/link";
-import SideMenu from "./SideMenu";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import React from "react"
+import styles from "./Header.module.scss"
+import Link from "next/link"
+import SideMenu from "./SideMenu"
+import { FaInstagram, FaLinkedin } from "react-icons/fa"
 const Header = () => {
   return (
     <div className={styles.header}>
@@ -13,7 +13,7 @@ const Header = () => {
         <ul className={styles.pageLinks}>
           <Link href="/">Home</Link>
           <Link href="/blog">Blog</Link>
-          <Link href="/">Projects</Link>
+          <Link href="/projects">Projects</Link>
         </ul>
 
         <div className={styles.icons}>
@@ -27,7 +27,7 @@ const Header = () => {
       </div>
       <SideMenu />
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

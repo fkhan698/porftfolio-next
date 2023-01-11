@@ -105,8 +105,8 @@ const SideMenu = () => {
   const routes = [
     { name: "Home", route: "/" },
     { name: "Blog", route: "/blog" },
+    { name: "Projects", route: "/projects" },
     { name: "Art", route: "/art" },
-    { name: "Contact", route: "#contact" },
   ]
   return (
     <>

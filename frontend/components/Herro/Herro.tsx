@@ -13,7 +13,7 @@ const Herro = () => {
           className={styles.introText}
         >
           <h1>Faizan Khan</h1>
-          <p>Software Engineer | Novice Digital Artist</p>
+          <p>Software Engineer | React Developer</p>
         </motion.div>
         <motion.div
           animate={{ y: 30, transitionEnd: { zIndex: -1 } }}
