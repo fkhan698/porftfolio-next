@@ -22,7 +22,7 @@ function createClient({ headers, initialState }) {
       }),
       // this uses apollo-link-http under the hood, so all the options here come from that package
       createUploadLink({
-        uri: endpoint,
+        uri: prodEndpoint,
         fetchOptions: {
           credentials: "include",
         },
