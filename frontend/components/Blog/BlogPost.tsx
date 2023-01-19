@@ -6,16 +6,7 @@ const BlogPost = ({ post }: any) => {
     <>
       <div className={styles.items}>
         <div className={styles.post}>
-          <Link href={`/blogPost/${post.id}`}>
-            <img
-              className={styles.postImage}
-              src={post?.photo?.image?.publicUrlTransformed}
-              alt={post.name}
-            />
-          </Link>
-          <Link href={`/blogPost/${post.id}`}>
-            <h1 className={styles.postTitle}>{post.title}</h1>
-          </Link>
+          
         </div>
       </div>
     </>
