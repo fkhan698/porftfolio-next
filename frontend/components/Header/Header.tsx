@@ -13,9 +13,9 @@ const Header = () => {
           </Link>
         </div>
         <ul className={styles.pageLinks}>
-          <Link href="/">About</Link>
+          <Link href="/about">About</Link>
           <Link href="/blog">Blog</Link>
-          <Link href="/projects">Projects</Link>
+          <Link href="/Faizan-Resume.pdf">Resume</Link>
         </ul>
 
         <div className={styles.icons}>

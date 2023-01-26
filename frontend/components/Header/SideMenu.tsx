@@ -1,6 +1,7 @@
 import { useState } from "react"
 import styled from "styled-components"
 import Link from "next/link"
+import { FaInstagram, FaLinkedin } from "react-icons/fa"
 
 const MobileExpandButton = styled.button`
   width: 50px;
@@ -91,7 +92,7 @@ const Menu = styled.ul`
 `
 
 const MenuItem = styled.li`
-  margin-top: 2rem;
+  margin-top: 4rem;
   padding-top: 0;
 
   &:last-of-type {
@@ -103,10 +104,9 @@ const SideMenu = () => {
   const [showMenu, setShowMenu] = useState(false)
 
   const routes = [
-    { name: "Home", route: "/" },
+    { name: "About", route: "/about" },
     { name: "Blog", route: "/blog" },
-    { name: "Projects", route: "/projects" },
-    { name: "Art", route: "/art" },
+    { name: "Resume", route: "/Faizan-Resume.pdf" },
   ]
   return (
     <>
@@ -128,6 +128,18 @@ const SideMenu = () => {
               </Link>
             </MenuItem>
           ))}
+          <MenuItem>
+            <Link href="https://www.instagram.com/faizankhan15/">
+              <FaInstagram size="40px" color="black" />
+            </Link>
+            <Link href="https://www.linkedin.com/in/faizan-khan698/">
+              <FaLinkedin
+                size="40px"
+                color="black"
+                style={{ marginLeft: "2rem" }}
+              />
+            </Link>
+          </MenuItem>
         </Menu>
       </Sider>
     </>

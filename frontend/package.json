@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next -p 3001",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -14,9 +14,12 @@
     "@apollo/react-ssr": "^4.0.0",
     "@keystone-6/document-renderer": "^1.1.2",
     "@mdx-js/loader": "^2.2.1",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.6",
     "@next/mdx": "^13.1.2",
     "@types/react-icons": "^3.0.0",
     "apollo-upload-client": "^17.0.0",
+    "embla-carousel-react": "^7.0.7",
     "framer-motion": "^7.6.4",
     "fs": "^0.0.1-security",
     "graphql": "^16.6.0",
@@ -30,6 +33,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
+    "react-material-ui-carousel": "^3.4.2",
     "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.54.8",
     "styled-components": "^5.3.5"
@@ -38,6 +42,7 @@
     "@types/node": "18.7.15",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
+    "@types/react-syntax-highlighter": "^15.5.6",
     "@types/styled-components": "^5.1.26",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
