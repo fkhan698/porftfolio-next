@@ -1,41 +1,29 @@
+import matter from "gray-matter"
+import Link from "next/link"
 import React from "react"
 import styles from "./Blog.module.scss"
-import { useQuery } from "@apollo/client"
-import gql from "graphql-tag"
-import client from "../../helpers/apollo-client"
-import Link from "next/link"
+import Image from "next/image"
+import Header from "../Header/Header"
 
-import BlogPost from "./BlogPost"
-const ALL_POSTS_QUERY = gql`
-  query ALL_POSTS {
-    blogPosts {
-      id
-      publishedAt
-      title
-      photo {
-        id
-        image {
-          publicUrlTransformed
-        }
-      }
-    }
-  }
-`
-
-const Blog = ({}) => {
-  const { data, error, loading } = useQuery(ALL_POSTS_QUERY)
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error: {error.message}</p>
-  console.log(data)
-
+const Blog = ({ posts }: any) => {
   return (
     <>
+      <Header />
       <div className={styles.BlogContainer}>
-        <div className={styles.items}>
+        {posts.map((post: any, index: any) => (
           <div className={styles.post}>
-            <h1 style={{ textAlign: "center" }}>Blog Posts in development</h1>
+            <Link href={"/blog/" + post.slug} passHref key={index}>
+              <img
+                src={post.frontMatter.thumbnailUrl}
+                className="img-fluid mt-1 rounded-start"
+                alt="thumbnail"
+              ></img>
+            </Link>
+            <Link href={"/blog/" + post.slug} passHref key={index}>
+              <h1>{post.frontMatter.title}</h1>
+            </Link>
           </div>
-        </div>
+        ))}
       </div>
     </>
   )
