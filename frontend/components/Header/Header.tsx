@@ -4,6 +4,12 @@ import Link from "next/link"
 import SideMenu from "./SideMenu"
 import { FaInstagram, FaLinkedin } from "react-icons/fa"
 const Header = () => {
+  const LinkedInIcon = React.forwardRef(({ onClick, href }, ref) => {
+    return <FaLinkedin size="40px" />
+  })
+  const InstagramIcon = React.forwardRef(({ onClick, href }, ref) => {
+    return <FaInstagram size="40px" />
+  })
   return (
     <div className={styles.header}>
       <div className={styles.headerContent}>
@@ -19,11 +25,11 @@ const Header = () => {
         </ul>
 
         <div className={styles.icons}>
-          <Link href="https://www.instagram.com/faizankhan15/">
-            <FaInstagram size="40px" />
+          <Link href="https://www.instagram.com/faizankhan15/" passHref>
+            <InstagramIcon />
           </Link>
           <Link href="https://www.linkedin.com/in/faizan-khan698/">
-            <FaLinkedin size="40px" />
+            <LinkedInIcon />
           </Link>
         </div>
       </div>

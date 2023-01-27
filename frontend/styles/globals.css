@@ -22,7 +22,7 @@ html {
 }
 body {
   color: white;
-  /* background-image: linear-gradient(
+  background-image: linear-gradient(
       323deg,
       rgba(255, 255, 255, 0.01) 0%,
       rgba(255, 255, 255, 0.01) 16.667%,
@@ -149,12 +149,13 @@ body {
       rgba(57, 57, 57, 0.01) 80%,
       rgba(57, 57, 57, 0.01) 100%
     ),
-    linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0)); */
+    linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
+  background-size: contain;
 
-  background: linear-gradient(
+  /* background: linear-gradient(
     135.8deg,
     rgb(26, 26, 29) 27.1%,
     rgb(111, 34, 50) 77.5%
-  );
+  ); */
   font-family: "Montserrat", sans-serif;
 }

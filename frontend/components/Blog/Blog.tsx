@@ -11,17 +11,11 @@ const Blog = ({ posts }: any) => {
       <Header />
       <div className={styles.BlogContainer}>
         {posts.map((post: any, index: any) => (
-          <div className={styles.post}>
+          <div key={index} className={styles.post}>
             <Link href={"/blog/" + post.slug} passHref key={index}>
-              <img
-                src={post.frontMatter.thumbnailUrl}
-                className="img-fluid mt-1 rounded-start"
-                alt="thumbnail"
-              ></img>
+              <img src={post.frontMatter.thumbnailUrl} alt="" />
             </Link>
-            <Link href={"/blog/" + post.slug} passHref key={index}>
-              <h1>{post.frontMatter.title}</h1>
-            </Link>
+            <h1>{post.frontMatter.title}</h1>
           </div>
         ))}
       </div>

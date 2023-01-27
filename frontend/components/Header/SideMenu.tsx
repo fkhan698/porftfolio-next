@@ -1,3 +1,4 @@
+import React from "react"
 import { useState } from "react"
 import styled from "styled-components"
 import Link from "next/link"
@@ -108,6 +109,14 @@ const SideMenu = () => {
     { name: "Blog", route: "/blog" },
     { name: "Resume", route: "/Faizan-Resume.pdf" },
   ]
+  const LinkedInIcon = React.forwardRef(({ onClick, href }, ref) => {
+    return (
+      <FaLinkedin size="40px" color="black" style={{ marginLeft: "1rem" }} />
+    )
+  })
+  const InstagramIcon = React.forwardRef(({ onClick, href }, ref) => {
+    return <FaInstagram size="40px" color="black" />
+  })
   return (
     <>
       <MobileExpandButton
@@ -130,14 +139,10 @@ const SideMenu = () => {
           ))}
           <MenuItem>
             <Link href="https://www.instagram.com/faizankhan15/">
-              <FaInstagram size="40px" color="black" />
+              <InstagramIcon />
             </Link>
             <Link href="https://www.linkedin.com/in/faizan-khan698/">
-              <FaLinkedin
-                size="40px"
-                color="black"
-                style={{ marginLeft: "2rem" }}
-              />
+              <LinkedInIcon />
             </Link>
           </MenuItem>
         </Menu>

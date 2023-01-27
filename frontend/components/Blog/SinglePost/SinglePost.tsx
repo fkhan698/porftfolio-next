@@ -11,23 +11,25 @@ import styles from "./SinglePost.module.scss"
 const components = { SyntaxHighlighter }
 
 const SinglePost = ({ frontMatter, mdxSource }: any) => {
+  const ArrowButton = React.forwardRef(({ onClick, href }, ref) => {
+    return (
+      <FaArrowLeft className={styles.backButton} size={"20px"}></FaArrowLeft>
+    )
+  })
   return (
     <>
       <Header />
 
       <div className={styles.container}>
-        <div className={styles.header}>
-          <Link href="/blog">
-            <FaArrowLeft
-              className={styles.backButton}
-              size={"20px"}
-            ></FaArrowLeft>
-          </Link>
-
-          <h1>{frontMatter.title}</h1>
-        </div>
-
         <div className={styles.content}>
+          <div className={styles.header}>
+            <Link href="/blog">
+              <ArrowButton />
+            </Link>
+
+            <h1>{frontMatter.title}</h1>
+          </div>
+
           <MDXRemote {...mdxSource} components={components} />
         </div>
       </div>

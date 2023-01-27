@@ -6,7 +6,7 @@ import Image from "next/image"
 import Blog from "../components/Blog/Blog"
 
 const BlogPage = ({ posts }) => {
-  return <Blog posts={posts}/>
+  return <Blog posts={posts} />
 }
 
 export const getStaticProps = async () => {
