@@ -2,7 +2,7 @@ import React from "react"
 
 import Header from "../../Header/Header"
 import Link from "next/link"
-import { serialize } from "next-mdx-remote/serialize"
+import Head from "next/head"
 import { MDXRemote } from "next-mdx-remote"
 import { FaArrowLeft } from "react-icons/fa"
 import SyntaxHighlighter from "react-syntax-highlighter"
@@ -14,7 +14,10 @@ const SinglePost = ({ frontMatter, mdxSource }: any) => {
   return (
     <>
       <Header />
+      <Head>
+      <title>{frontMatter.title}</title>
 
+      </Head>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.header}>
