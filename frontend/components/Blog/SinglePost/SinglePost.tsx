@@ -11,11 +11,6 @@ import styles from "./SinglePost.module.scss"
 const components = { SyntaxHighlighter }
 
 const SinglePost = ({ frontMatter, mdxSource }: any) => {
-  const ArrowButton = React.forwardRef(({ onClick, href }, ref) => {
-    return (
-      <FaArrowLeft className={styles.backButton} size={"20px"}></FaArrowLeft>
-    )
-  })
   return (
     <>
       <Header />
@@ -24,7 +19,12 @@ const SinglePost = ({ frontMatter, mdxSource }: any) => {
         <div className={styles.content}>
           <div className={styles.header}>
             <Link href="/blog">
-              <ArrowButton />
+              <a>
+                <FaArrowLeft
+                  className={styles.backButton}
+                  size={"20px"}
+                ></FaArrowLeft>
+              </a>
             </Link>
 
             <h1>{frontMatter.title}</h1>

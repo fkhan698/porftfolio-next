@@ -5,10 +5,10 @@ import SideMenu from "./SideMenu"
 import { FaInstagram, FaLinkedin } from "react-icons/fa"
 const Header = () => {
   const LinkedInIcon = React.forwardRef(({ onClick, href }, ref) => {
-    return <FaLinkedin size="40px" />
+    return <FaLinkedin href={href} onClick={onClick} ref={ref} size="40px" />
   })
   const InstagramIcon = React.forwardRef(({ onClick, href }, ref) => {
-    return <FaInstagram size="40px" />
+    return <FaInstagram href={href} onClick={onClick} ref={ref} size="40px" />
   })
   return (
     <div className={styles.header}>
@@ -26,10 +26,14 @@ const Header = () => {
 
         <div className={styles.icons}>
           <Link href="https://www.instagram.com/faizankhan15/" passHref>
-            <InstagramIcon />
+            <a>
+              <FaInstagram />
+            </a>
           </Link>
           <Link href="https://www.linkedin.com/in/faizan-khan698/">
-            <LinkedInIcon />
+            <a>
+              <FaLinkedin />
+            </a>
           </Link>
         </div>
       </div>

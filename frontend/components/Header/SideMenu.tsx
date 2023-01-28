@@ -48,7 +48,7 @@ const MobileExpandButton = styled.button`
     transform-origin: left top;
     transition: transform 0.15s;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 660px) {
     display: block;
   }
 `
@@ -109,14 +109,7 @@ const SideMenu = () => {
     { name: "Blog", route: "/blog" },
     { name: "Resume", route: "/Faizan-Resume.pdf" },
   ]
-  const LinkedInIcon = React.forwardRef(({ onClick, href }, ref) => {
-    return (
-      <FaLinkedin size="40px" color="black" style={{ marginLeft: "1rem" }} />
-    )
-  })
-  const InstagramIcon = React.forwardRef(({ onClick, href }, ref) => {
-    return <FaInstagram size="40px" color="black" />
-  })
+
   return (
     <>
       <MobileExpandButton
@@ -139,10 +132,16 @@ const SideMenu = () => {
           ))}
           <MenuItem>
             <Link href="https://www.instagram.com/faizankhan15/">
-              <InstagramIcon />
+              <a>
+                <FaLinkedin size="40px" color="black" />
+              </a>
             </Link>
+          </MenuItem>
+          <MenuItem>
             <Link href="https://www.linkedin.com/in/faizan-khan698/">
-              <LinkedInIcon />
+              <a>
+                <FaInstagram size="40px" color="black" />
+              </a>
             </Link>
           </MenuItem>
         </Menu>

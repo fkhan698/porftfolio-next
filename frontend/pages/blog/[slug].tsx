@@ -6,12 +6,13 @@ import matter from "gray-matter"
 
 import SinglePost from "../../components/Blog/SinglePost/SinglePost"
 
-const BlogPost = ({ frontMatter, mdxSource }: any) => {
-  return <SinglePost frontMatter={frontMatter} mdxSource={mdxSource} />
+const BlogPost = ({ frontMatter, mdxSource }:any) => {
+  return <SinglePost frontMatter={frontMatter} mdxSource={mdxSource}/>
 }
 
 const getStaticPaths = async () => {
-  const files = fs.readdirSync(path.join("posts"))
+  const files = fs.readdirSync(path.join('posts'))
+
 
   const paths = files.map((filename) => ({
     params: {
@@ -25,7 +26,7 @@ const getStaticPaths = async () => {
   }
 }
 
-const getStaticProps = async ({ params: { slug } }: any) => {
+const getStaticProps = async ({ params: { slug } }:any) => {
   const markdownWithMeta = fs.readFileSync(
     path.join("posts", slug + ".mdx"),
     "utf-8"
