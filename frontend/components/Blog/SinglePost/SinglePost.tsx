@@ -15,8 +15,12 @@ const SinglePost = ({ frontMatter, mdxSource }: any) => {
     <>
       <Header />
       <Head>
-      <title>{frontMatter.title}</title>
-
+        <title>{frontMatter.title}</title>
+        <meta property="keywords" content={frontMatter.tags} />
+        <meta property="og:title" content={frontMatter.title} />
+        <meta property="og:author" content={frontMatter.author} />
+        <meta property="og:description" content={frontMatter.description} />
+        <meta property="og:image" content={frontMatter.thumbNailUrl} />
       </Head>
       <div className={styles.container}>
         <div className={styles.content}>
@@ -32,7 +36,7 @@ const SinglePost = ({ frontMatter, mdxSource }: any) => {
 
             <h1>{frontMatter.title}</h1>
           </div>
-
+          <h2>{frontMatter.date}</h2>
           <MDXRemote {...mdxSource} components={components} />
         </div>
       </div>

@@ -13,7 +13,7 @@ const Blog = ({ posts }: any) => {
         {posts.map((post: any, index: any) => (
           <div key={index} className={styles.post}>
             <Link href={"/blog/" + post.slug} passHref key={index}>
-              <img src={post.frontMatter.thumbnailUrl} alt="" />
+              <img src={post.frontMatter.thumbnailUrl} alt="Thumbnail" />
             </Link>
             <h1>{post.frontMatter.title}</h1>
           </div>
