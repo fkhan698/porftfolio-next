@@ -15,7 +15,10 @@ const Blog = ({ posts }: any) => {
             <Link href={"/blog/" + post.slug} passHref key={index}>
               <img src={post.frontMatter.thumbnailUrl} alt="Thumbnail" />
             </Link>
+            <Link  href={"/blog/" + post.slug} passHref key={index}>
             <h1 className={styles.title}>{post.frontMatter.title}</h1>
+            </Link>
+            
           </div>
         ))}
       </div>

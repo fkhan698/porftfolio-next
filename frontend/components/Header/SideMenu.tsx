@@ -133,15 +133,16 @@ const SideMenu = () => {
           ))}
           <MenuItem>
             <Link href="https://www.instagram.com/faizankhan15/">
-              <a>
-                <FaLinkedin size="40px" color="black" />
+                 <a>
+                <FaInstagram size="40px" color="black" />
               </a>
             </Link>
           </MenuItem>
           <MenuItem>
             <Link href="https://www.linkedin.com/in/faizan-khan698/">
+
               <a>
-                <FaInstagram size="40px" color="black" />
+                <FaLinkedin size="40px" color="black" />
               </a>
             </Link>
           </MenuItem>

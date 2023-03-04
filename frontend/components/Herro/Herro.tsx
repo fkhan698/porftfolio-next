@@ -8,7 +8,7 @@ const Herro = () => {
     <>
       <div className={styles.HerroContainer}>
         <motion.div
-          animate={{ y: 50, transitionEnd: { zIndex: -1 } }}
+          animate={{ y: 0, transitionEnd: { zIndex: -1 } }}
           transition={{ ease: "easeOut", duration: 0.8 }}
           className={styles.introText}
         >
@@ -16,7 +16,7 @@ const Herro = () => {
           <p>Software Engineer | React Developer</p>
         </motion.div>
         <motion.div
-          animate={{ y: 30, transitionEnd: { zIndex: -1 } }}
+          animate={{ y: 40, transitionEnd: { zIndex: -1 } }}
           transition={{ ease: "easeOut", duration: 1.4 }}
           className={styles.headshot}
         >

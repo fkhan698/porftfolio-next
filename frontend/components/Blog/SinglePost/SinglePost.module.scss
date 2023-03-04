@@ -7,15 +7,17 @@
 
   .header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 8rem;
     font-size: 1rem;
 
     @include respond(tablet) {
-      line-break: inherit;
     
+    }
+    @include respond (mobile) {
+      font-size: 0.75rem;
     }
   }
   .backButton {
@@ -29,6 +31,9 @@
     justify-content: center;
     align-content: center;
     flex-direction: column;
+    @include respond (mobile) {
+      width: 80%;
+    }
   }
 
   .backButton:hover {
@@ -39,7 +44,7 @@
   p {
     font-size: 1.5rem;
     @include respond(mobile) {
-      font-size: 1rem;
+      font-size: 1.25rem;
     }
   }
 
