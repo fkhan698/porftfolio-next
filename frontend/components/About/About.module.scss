@@ -31,9 +31,12 @@
         font-size: 3.8rem;
       }
       p {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         padding: 2rem;
       }
+      @include respond(mobile) {
+    margin-top: 15rem;
+  }
     }
   }
 
@@ -41,6 +44,6 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    padding: 0;
   }
+  
 }

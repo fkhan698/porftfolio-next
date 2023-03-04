@@ -105,6 +105,7 @@ const SideMenu = () => {
   const [showMenu, setShowMenu] = useState(false)
 
   const routes = [
+    { name: "Home", route: "/" },
     { name: "About", route: "/about" },
     { name: "Blog", route: "/blog" },
     { name: "Resume", route: "/Faizan-Resume.pdf" },
