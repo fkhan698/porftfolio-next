@@ -2,7 +2,7 @@ import React from "react"
 import styles from "./Header.module.scss"
 import Link from "next/link"
 import SideMenu from "./SideMenu"
-import { FaInstagram, FaLinkedin } from "react-icons/fa"
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa"
 const Header = () => {
   return (
     <div className={styles.header}>
@@ -27,6 +27,11 @@ const Header = () => {
           <Link href="https://www.linkedin.com/in/faizan-khan698/">
             <a>
               <FaLinkedin size={"40px"} />
+            </a>
+          </Link>
+          <Link href="https://www.github.com/fkhan698">
+            <a>
+              <FaGithub size={"40px"} />
             </a>
           </Link>
         </div>

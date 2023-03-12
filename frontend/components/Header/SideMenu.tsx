@@ -2,7 +2,7 @@ import React from "react"
 import { useState } from "react"
 import styled from "styled-components"
 import Link from "next/link"
-import { FaInstagram, FaLinkedin } from "react-icons/fa"
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa"
 
 const MobileExpandButton = styled.button`
   width: 50px;
@@ -108,7 +108,7 @@ const SideMenu = () => {
     { name: "Home", route: "/" },
     { name: "About", route: "/about" },
     { name: "Blog", route: "/blog" },
-    { name: "Resume", route: "/Faizan-Resume.pdf" },
+    { name: "Resume", route: "/Faizan-Resume.pdf" }
   ]
 
   return (
@@ -133,16 +133,22 @@ const SideMenu = () => {
           ))}
           <MenuItem>
             <Link href="https://www.instagram.com/faizankhan15/">
-                 <a>
+              <a>
                 <FaInstagram size="40px" color="black" />
               </a>
             </Link>
           </MenuItem>
           <MenuItem>
             <Link href="https://www.linkedin.com/in/faizan-khan698/">
-
               <a>
                 <FaLinkedin size="40px" color="black" />
+              </a>
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link href="https://www.github.com/fkhan698">
+              <a>
+                <FaGithub size="40px" color="black" />
               </a>
             </Link>
           </MenuItem>
