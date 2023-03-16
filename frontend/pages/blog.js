@@ -1,35 +1,47 @@
-import fs from "fs"
-import path from "path"
-import matter from "gray-matter"
-import Link from "next/link"
-import Image from "next/image"
-import Blog from "../components/Blog/Blog"
-
-const BlogPage = ({ posts }) => {
-  return <Blog posts={posts} />
-}
-
-export const getStaticProps = async () => {
-  const files = fs.readdirSync(path.join("posts"))
-
-  const posts = files.map((filename) => {
-    const markdownWithMeta = fs.readFileSync(
-      path.join("posts", filename),
-      "utf-8"
-    )
-    const { data: frontMatter } = matter(markdownWithMeta)
-
-    return {
-      frontMatter,
-      slug: filename.split(".")[0],
+const URL = "http://localhost:5000"
+export const getStaticProps = async (context) => {
+  const fetchParams = {
+    method: "post",
+    headers: {
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({
+      query: `{
+        blogposts {
+          data {
+            attributes {
+              title
+              date
+              content
+      }
     }
-  })
+  }
+    }
+      `
+    })
+  }
+
+  const res = await fetch(`${URL}/graphql`, fetchParams)
+  const { data } = await res.json()
 
   return {
     props: {
-      posts,
-    },
+      blogPosts: data.blogposts.data // Extract the data array from the response and pass it as a prop
+    }
   }
+}
+
+const BlogPage = ({ blogPosts }) => {
+  return (
+    <>
+      <h1>BLog Posts</h1>
+      <ul>
+        {blogPosts.map((post) => (
+          <li key={post.id}>{post.attributes.title}</li>
+        ))}
+      </ul>
+    </>
+  )
 }
 
 export default BlogPage
