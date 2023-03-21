@@ -1,3 +1,7 @@
+import { useState } from "react"
+import Blog from "../components/Blog/Blog"
+import Projects from '../components/Projects/Projects'
+import Header from "../components/Header/Header"
 const URL = "http://localhost:5000"
 export const getStaticProps = async (context) => {
   const fetchParams = {
@@ -13,6 +17,15 @@ export const getStaticProps = async (context) => {
               title
               date
               content
+              slug
+                image {
+          data {
+            attributes{
+              url
+            }
+          }
+        }
+
       }
     }
   }
@@ -31,15 +44,16 @@ export const getStaticProps = async (context) => {
   }
 }
 
+
+
 const BlogPage = ({ blogPosts }) => {
+
+
   return (
     <>
-      <h1>BLog Posts</h1>
-      <ul>
-        {blogPosts.map((post) => (
-          <li key={post.id}>{post.attributes.title}</li>
-        ))}
-      </ul>
+      {blogPosts.map((post, i) => (
+        <Blog key={post.attributes.slug} post={post} />
+      ))}
     </>
   )
 }

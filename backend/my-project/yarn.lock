@@ -2201,7 +2201,7 @@
     "@strapi/utils" "4.8.1"
     "sendmail" "^1.6.1"
 
-"@strapi/provider-upload-cloudinary@^4.8.1":
+"@strapi/provider-upload-cloudinary@^4.1.3":
   "integrity" "sha512-WFdQ0rugf761qXBmTZ9Dag22lsFRc3QDfxwBSmfiBawdwrbZRvo9lpPPkPfijhcr2/tjp1DCpIIqdhTwCxU/KA=="
   "resolved" "https://registry.npmjs.org/@strapi/provider-upload-cloudinary/-/provider-upload-cloudinary-4.8.1.tgz"
   "version" "4.8.1"

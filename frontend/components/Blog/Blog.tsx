@@ -5,22 +5,20 @@ import styles from "./Blog.module.scss"
 import Image from "next/image"
 import Header from "../Header/Header"
 
-const Blog = ({ posts }: any) => {
+const Blog = ({ post, i }: any) => {
   return (
     <>
-      <Header />
-      <div className={styles.BlogContainer}>
-        {posts.map((post: any, index: any) => (
-          <div key={index} className={styles.post}>
-            <Link href={"/blog/" + post.slug} passHref key={index}>
-              <img src={post.frontMatter.thumbnailUrl} alt="Thumbnail" />
-            </Link>
-            <Link  href={"/blog/" + post.slug} passHref key={index}>
-            <h1 className={styles.title}>{post.frontMatter.title}</h1>
+    <Header />
+      <div key={i} className={styles.BlogContainer}>
+      
+          <div key={post.id} className={styles.post}>
+      
+            <Link  href={"/blog/" + post.slug}>
+            <h1 key={i} className={styles.title}>{post.attributes.title}</h1>
             </Link>
             
           </div>
-        ))}
+
       </div>
     </>
   )
