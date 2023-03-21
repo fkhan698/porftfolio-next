@@ -8,18 +8,15 @@ import Header from "../Header/Header"
 const Blog = ({ post, i }: any) => {
   return (
     <>
-    <Header />
-      <div key={i} className={styles.BlogContainer}>
-      
-          <div key={post.id} className={styles.post}>
-      
-            <Link  href={"/blog/" + post.slug}>
-            <h1 key={i} className={styles.title}>{post.attributes.title}</h1>
+
+        <div className={styles.post}>
+            <img src={post.attributes.image.data[0].attributes.url}></img>
+            <Link  href={"/blog/" + post.attributes.slug} >
+            <h1 className={styles.title}>{post.attributes.title}</h1>
             </Link>
             
           </div>
-
-      </div>
+ 
     </>
   )
 }

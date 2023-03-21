@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Blog from "../components/Blog/Blog"
-import Projects from '../components/Projects/Projects'
+import styles from "../components/Blog/Blog.module.scss"
 import Header from "../components/Header/Header"
 const URL = "http://localhost:5000"
 export const getStaticProps = async (context) => {
@@ -50,10 +50,15 @@ const BlogPage = ({ blogPosts }) => {
 
 
   return (
-    <>
-      {blogPosts.map((post, i) => (
-        <Blog key={post.attributes.slug} post={post} />
-      ))}
+      <>
+    <Header/>
+  <div className={styles.BlogContainer}>
+  {blogPosts.map((post, i) => (
+        <Blog key={i} post={post} />
+  ))}
+
+  </div>
+    
     </>
   )
 }
