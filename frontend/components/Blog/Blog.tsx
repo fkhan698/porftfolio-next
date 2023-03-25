@@ -6,17 +6,25 @@ import Image from "next/image"
 import Header from "../Header/Header"
 
 const Blog = ({ post, i }: any) => {
+  console.log(post)
   return (
     <>
-
-        <div className={styles.post}>
-            <img src={post.attributes.image.data[0].attributes.url}></img>
-            <Link  href={"/blog/" + post.attributes.slug} >
-            <h1 className={styles.title}>{post.attributes.title}</h1>
-            </Link>
-            
+      <div className={styles.post}>
+        <Link href={"/blog/" + post.attributes.slug}>
+          <div>
+            <Image
+              className={styles.thumbnail}
+              width={500}
+              height={400}
+              src={post.attributes.image.data[0].attributes.url}
+            />
           </div>
- 
+        </Link>
+
+        <Link href={"/blog/" + post.attributes.slug}>
+          <h1 className={styles.title}>{post.attributes.title}</h1>
+        </Link>
+      </div>
     </>
   )
 }

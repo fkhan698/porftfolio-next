@@ -37,14 +37,13 @@
     transform: scale(0.9);
   }
 
-  img {
-    width: 500px;
-    height: 400px;
+  .thumbnail {
+  
     border-radius: 10px;
     z-index: -5;
     @include respond(tablet) {
-      width: 70%;
-    height: 70%;
+      margin: 3rem;
+
     }
   }
 

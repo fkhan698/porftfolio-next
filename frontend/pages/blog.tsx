@@ -1,9 +1,9 @@
-import { useState } from "react"
+
 import Blog from "../components/Blog/Blog"
 import styles from "../components/Blog/Blog.module.scss"
 import Header from "../components/Header/Header"
 const URL = "http://localhost:5000"
-export const getStaticProps = async (context) => {
+export const getStaticProps = async () => {
   const fetchParams = {
     method: "post",
     headers: {
@@ -46,14 +46,14 @@ export const getStaticProps = async (context) => {
 
 
 
-const BlogPage = ({ blogPosts }) => {
+const BlogPage = ({ blogPosts }:any) => {
 
 
   return (
       <>
     <Header/>
   <div className={styles.BlogContainer}>
-  {blogPosts.map((post, i) => (
+  {blogPosts.map((post:any, i:any) => (
         <Blog key={i} post={post} />
   ))}
 

@@ -1,48 +1,33 @@
-import { serialize } from "next-mdx-remote/serialize"
-import { MDXRemote } from "next-mdx-remote"
-import fs from "fs"
-import path from "path"
-import matter from "gray-matter"
+const URL = "http://localhost:5000"
 
-import SinglePost from "../../components/Blog/SinglePost/SinglePost"
+export async function getStaticProps({ params }: any) {
+  const postid = params.id
+  const results = await fetch(`${URL}/api/blogposts/${postid}?populate=*`)
+  const previews = await results.json()
+  const photo = await previews.data.attributes.img.data.attributes.url
+  const title = await previews.data.attributes.title
 
-const BlogPost = ({ frontMatter, mdxSource }:any) => {
-  return <SinglePost frontMatter={frontMatter} mdxSource={mdxSource}/>
+  const date = await previews.data.attributes.createdAt.toString()
+  return {
+    props: { photo, title, date }
+  }
 }
+export async function getStaticPaths() {
+  const results = await fetch(`${URL}/api/blogposts?populate=*`)
+  const previews = await results.json()
 
-const getStaticPaths = async () => {
-  const files = fs.readdirSync(path.join('posts'))
-
-
-  const paths = files.map((filename) => ({
-    params: {
-      slug: filename.replace(".mdx", ""),
-    },
+  const paths = previews.data.map((post) => ({
+    params: { slug: post.slug }
   }))
 
   return {
     paths,
-    fallback: false,
+    fallback: true
   }
 }
 
-const getStaticProps = async ({ params: { slug } }:any) => {
-  const markdownWithMeta = fs.readFileSync(
-    path.join("posts", slug + ".mdx"),
-    "utf-8"
-  )
-
-  const { data: frontMatter, content } = matter(markdownWithMeta)
-  const mdxSource = await serialize(content)
-
-  return {
-    props: {
-      frontMatter,
-      slug,
-      mdxSource,
-    },
-  }
+const SinglePost = ({ photo, title, date }) => {
+  console.log(title)
 }
 
-export { getStaticProps, getStaticPaths }
-export default BlogPost
+export default SinglePost
