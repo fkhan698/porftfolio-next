@@ -1,4 +1,3 @@
-import matter from "gray-matter"
 import Link from "next/link"
 import React from "react"
 import styles from "./Blog.module.scss"
@@ -6,11 +5,11 @@ import Image from "next/image"
 import Header from "../Header/Header"
 
 const Blog = ({ post, i }: any) => {
-  console.log(post)
+  console.log(post.id)
   return (
     <>
       <div className={styles.post}>
-        <Link href={"/blog/" + post.attributes.slug}>
+        <Link href={"/blog/" + post.id}>
           <div>
             <Image
               className={styles.thumbnail}
