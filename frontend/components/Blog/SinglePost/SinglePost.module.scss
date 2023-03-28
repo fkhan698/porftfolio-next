@@ -14,9 +14,8 @@
     font-size: 1rem;
 
     @include respond(tablet) {
-    
     }
-    @include respond (mobile) {
+    @include respond(mobile) {
       font-size: 0.75rem;
     }
   }
@@ -31,7 +30,7 @@
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    @include respond (mobile) {
+    @include respond(mobile) {
       width: 80%;
     }
   }

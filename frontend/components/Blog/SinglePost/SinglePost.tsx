@@ -3,6 +3,8 @@ import React from "react"
 import Header from "../../Header/Header"
 import Link from "next/link"
 import Head from "next/head"
+import ReactDom from "react-dom"
+import ReactMarkdown from "react-markdown"
 import { FaArrowLeft } from "react-icons/fa"
 
 import styles from "./SinglePost.module.scss"
@@ -27,11 +29,13 @@ const SinglePost = ({ photo, title, date, content }: any) => {
             <h1>{title}</h1>
           </div>
           <h2>{date}</h2>
-          <p>{content}</p>
+          <ReactMarkdown>{content}</ReactMarkdown>
         </div>
       </div>
     </>
   )
 }
+
+const Markdown = () => {}
 
 export default SinglePost

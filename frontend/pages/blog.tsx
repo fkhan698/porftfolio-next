@@ -2,7 +2,6 @@ import { useState } from "react"
 import Blog from "../components/Blog/Blog"
 import styles from "../components/Blog/Blog.module.scss"
 import Header from "../components/Header/Header"
-const URL = "http://localhost:5000"
 
 export async function getStaticProps() {
   const results = await fetch("http://localhost:5000/api/blogposts/?populate=*")
