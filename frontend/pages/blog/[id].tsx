@@ -1,3 +1,4 @@
+import SinglePost from "../../components/Blog/SinglePost/SinglePost"
 const URL = "http://localhost:5000"
 
 export async function getStaticProps({ params }: any) {
@@ -25,14 +26,10 @@ export async function getStaticPaths() {
   }
 }
 
-const SinglePost = ({ photo, title, date, content }) => {
+const SinglePosts = ({ photo, title, date, content }) => {
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>{date}</p>
-      <p>{content}</p>
-    </div>
+    <SinglePost photo={photo} title={title} date={date} content={content} />
   )
 }
 
-export default SinglePost
+export default SinglePosts
