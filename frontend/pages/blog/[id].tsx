@@ -1,9 +1,9 @@
 import SinglePost from "../../components/Blog/SinglePost/SinglePost"
-const URL = "http://localhost:5000"
+const URL = process.env.STRAPI_URL
 
 export async function getStaticProps({ params }: any) {
   const postid = params?.id
-  const results = await fetch(`${URL}/api/blogposts/${postid}?populate=*`)
+  const results = await fetch(`${URL}/${postid}?populate=*`)
   const previews = await results.json()
 
   const title = await previews.data.attributes.title
@@ -15,7 +15,7 @@ export async function getStaticProps({ params }: any) {
   }
 }
 export async function getStaticPaths() {
-  const results = await fetch("http://localhost:5000/api/blogposts?populate=*")
+  const results = await fetch(`${URL}/?populate=*`)
   const previews = await results.json()
   return {
     paths:

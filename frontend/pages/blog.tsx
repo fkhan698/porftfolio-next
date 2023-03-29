@@ -3,8 +3,10 @@ import Blog from "../components/Blog/Blog"
 import styles from "../components/Blog/Blog.module.scss"
 import Header from "../components/Header/Header"
 
+const URL = process.env.STRAPI_URL
+
 export async function getStaticProps() {
-  const results = await fetch("http://localhost:5000/api/blogposts/?populate=*")
+  const results = await fetch(`${URL}/?populate=*`)
   const blogPosts = await results.json()
   return {
     props: { blogPosts }
