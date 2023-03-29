@@ -2,7 +2,7 @@ import SinglePost from "../../components/Blog/SinglePost/SinglePost"
 const URL = "http://localhost:5000"
 
 export async function getStaticProps({ params }: any) {
-  const postid = params.id
+  const postid = params?.id
   const results = await fetch(`${URL}/api/blogposts/${postid}?populate=*`)
   const previews = await results.json()
 
@@ -19,14 +19,14 @@ export async function getStaticPaths() {
   const previews = await results.json()
   return {
     paths:
-      previews?.data.map((post) => ({
+      previews?.data.map((post: any) => ({
         params: { id: post.id.toString() }
       })) || [],
     fallback: true
   }
 }
 
-const SinglePosts = ({ photo, title, date, content }) => {
+const SinglePosts = ({ photo, title, date, content }: any) => {
   return (
     <SinglePost photo={photo} title={title} date={date} content={content} />
   )
