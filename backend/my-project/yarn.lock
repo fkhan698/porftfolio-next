@@ -7525,6 +7525,11 @@
     "mkdirp" "^0.5.1"
     "resolve" "^1.12.0"
 
+"node-postgres@^0.6.2":
+  "integrity" "sha512-wjaW+KutPOFemtBDuogyy6OMMOs2vpSOwuqbUhFUbrDEOTk66K2lmRyvOdO4t26qGtnPyZXQ4bAuF17cBhi5aQ=="
+  "resolved" "https://registry.npmjs.org/node-postgres/-/node-postgres-0.6.2.tgz"
+  "version" "0.6.2"
+
 "node-releases@^2.0.8":
   "integrity" "sha512-5GFldHPXVG/YZmFzJvKK2zDSzPKhEp0+ZR5SVaoSag9fsL5YgHbUHDfnG5494ISANDcK4KwPXAx2xqVEydmd7w=="
   "resolved" "https://registry.npmjs.org/node-releases/-/node-releases-2.0.10.tgz"
