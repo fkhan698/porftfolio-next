@@ -1,15 +1,25 @@
+import { useState } from "react"
 import React from "react"
 import Header from "../components/Header/Header"
-import Footer from "../components/Footer/Footer"
-import Blog from "../components/Blog/Blog"
+
+const URL = "http://localhost:5000/api/blogPosts?populate=*"
 
 const BlogLayout = ({}) => {
+  ;<Header />
   return (
     <>
-      <Header />
-      <Blog />
+      <h1>ell</h1>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const results = await fetch(URL)
+  const response = await results.json()
+
+  return {
+    props: { response }
+  }
 }
 
 export default BlogLayout

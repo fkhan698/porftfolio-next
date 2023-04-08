@@ -1,26 +1,44 @@
-import matter from "gray-matter"
 import Link from "next/link"
 import React from "react"
 import styles from "./Blog.module.scss"
 import Image from "next/image"
 import Header from "../Header/Header"
 
-const Blog = ({ posts }: any) => {
+type Posts = {
+  id: string
+  attributes: {
+    title: string
+    slug: string
+    image: {
+      data: {
+        attributes: {
+          url: string
+        }
+      }[]
+    }
+  }
+}
+type Props = {
+  post: Posts
+}
+const Blog = ({ post }: Props) => {
   return (
     <>
-      <Header />
-      <div className={styles.BlogContainer}>
-        {posts.map((post: any, index: any) => (
-          <div key={index} className={styles.post}>
-            <Link href={"/blog/" + post.slug} passHref key={index}>
-              <img src={post.frontMatter.thumbnailUrl} alt="Thumbnail" />
-            </Link>
-            <Link  href={"/blog/" + post.slug} passHref key={index}>
-            <h1 className={styles.title}>{post.frontMatter.title}</h1>
-            </Link>
-            
+      <div className={styles.post}>
+        <Link href={"/blog/" + post.id}>
+          <div>
+            <Image
+              className={styles.thumbnail}
+              width={410}
+              height={550}
+              src={post.attributes.image.data[0].attributes.url}
+            />
           </div>
-        ))}
+        </Link>
+
+        <Link href={"/blog/" + post.attributes.slug}>
+          <h1 className={styles.title}>{post.attributes.title}</h1>
+        </Link>
       </div>
     </>
   )
