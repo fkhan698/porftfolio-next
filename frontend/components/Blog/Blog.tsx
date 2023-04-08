@@ -13,8 +13,8 @@ const Blog = ({ post, i }: any) => {
           <div>
             <Image
               className={styles.thumbnail}
-              width={500}
-              height={400}
+              width={410}
+              height={550}
               src={post.attributes.image.data[0].attributes.url}
             />
           </div>
