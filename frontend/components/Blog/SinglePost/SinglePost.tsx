@@ -9,7 +9,13 @@ import { FaArrowLeft } from "react-icons/fa"
 
 import styles from "./SinglePost.module.scss"
 
-const SinglePost = ({ photo, title, date, content }: any) => {
+type Post = {
+  title: string
+  date: string
+  content: string
+}
+
+const SinglePost = ({ title, date, content }: Post) => {
   return (
     <>
       <Header />

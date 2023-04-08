@@ -4,8 +4,24 @@ import styles from "./Blog.module.scss"
 import Image from "next/image"
 import Header from "../Header/Header"
 
-const Blog = ({ post, i }: any) => {
-  console.log(post.id)
+type Posts = {
+  id: string
+  attributes: {
+    title: string
+    slug: string
+    image: {
+      data: {
+        attributes: {
+          url: string
+        }
+      }[]
+    }
+  }
+}
+type Props = {
+  post: Posts
+}
+const Blog = ({ post }: Props) => {
   return (
     <>
       <div className={styles.post}>
