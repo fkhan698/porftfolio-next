@@ -1,3 +1,3 @@
-## This is my portfolio
+## Faizan Khan Porfolio Next.js | TypeScript | Sass | Strapi
 
-# Test on Develop branch
+
